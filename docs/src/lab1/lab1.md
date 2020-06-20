@@ -1,3 +1,3 @@
-## Lab 1：启动和bootloader
+# Lab 1：启动和 bootloader
 
-### 实验目的
+## 实验目的
