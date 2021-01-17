@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>先修 - OS Lab Document</title>
+        <title>简介 - OS Lab Document</title>
         
 
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
@@ -81,7 +81,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="prepare/index.html"><strong aria-hidden="true">1.</strong> 先修</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="prepare/devenv.html"><strong aria-hidden="true">1.1.</strong> 开发环境</a></li><li class="chapter-item expanded "><a href="prepare/c.html"><strong aria-hidden="true">1.2.</strong> C 语言</a></li><li class="chapter-item expanded "><a href="prepare/assembly.html"><strong aria-hidden="true">1.3.</strong> 汇编</a></li><li class="chapter-item expanded "><a href="prepare/80386.html"><strong aria-hidden="true">1.4.</strong> 关于 80386</a></li></ol></li><li class="chapter-item expanded "><a href="lab1/lab1.html"><strong aria-hidden="true">2.</strong> Lab 1：启动和 bootloader</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="lab1/lab1-exercise1.html"><strong aria-hidden="true">2.1.</strong> Exercise 1</a></li><li class="chapter-item expanded "><a href="lab1/lab1-exercise2.html"><strong aria-hidden="true">2.2.</strong> Exercise 2</a></li></ol></li><li class="chapter-item expanded "><a href="lab2/lab2.html"><strong aria-hidden="true">3.</strong> Lab 2：物理内存管理</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="lab2/lab2-exercise1.html"><strong aria-hidden="true">3.1.</strong> Exercise 1</a></li><li class="chapter-item expanded "><a href="lab2/lab2-exercise2.html"><strong aria-hidden="true">3.2.</strong> Exercise 2</a></li></ol></li><li class="chapter-item expanded "><a href="lab3/lab3.html"><strong aria-hidden="true">4.</strong> Lab 3：虚拟内存管理</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="lab3/lab3-exercise1.html"><strong aria-hidden="true">4.1.</strong> Exercise 1</a></li><li class="chapter-item expanded "><a href="lab3/lab3-exercise2.html"><strong aria-hidden="true">4.2.</strong> Exercise 2</a></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="index.html" class="active"><strong aria-hidden="true">1.</strong> 简介</a></li><li class="chapter-item expanded "><a href="prepare/index.html"><strong aria-hidden="true">2.</strong> 先修</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="prepare/devenv.html"><strong aria-hidden="true">2.1.</strong> 开发环境</a></li><li class="chapter-item expanded "><a href="prepare/c.html"><strong aria-hidden="true">2.2.</strong> C 语言</a></li><li class="chapter-item expanded "><a href="prepare/assembly.html"><strong aria-hidden="true">2.3.</strong> 汇编</a></li><li class="chapter-item expanded "><a href="prepare/80386.html"><strong aria-hidden="true">2.4.</strong> 关于 80386</a></li></ol></li><li class="chapter-item expanded "><a href="lab1/index.html"><strong aria-hidden="true">3.</strong> Lab 1：启动和 bootloader</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="lab1/exercise1.html"><strong aria-hidden="true">3.1.</strong> Exercise 1</a></li><li class="chapter-item expanded "><a href="lab1/exercise2.html"><strong aria-hidden="true">3.2.</strong> Exercise 2</a></li></ol></li><li class="chapter-item expanded "><a href="lab2/index.html"><strong aria-hidden="true">4.</strong> Lab 2：物理内存管理</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="lab2/exercise1.html"><strong aria-hidden="true">4.1.</strong> Exercise 1</a></li><li class="chapter-item expanded "><a href="lab2/exercise2.html"><strong aria-hidden="true">4.2.</strong> Exercise 2</a></li></ol></li><li class="chapter-item expanded "><a href="lab3/index.html"><strong aria-hidden="true">5.</strong> Lab 3：虚拟内存管理</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="lab3/exercise1.html"><strong aria-hidden="true">5.1.</strong> Exercise 1</a></li><li class="chapter-item expanded "><a href="lab3/exercise2.html"><strong aria-hidden="true">5.2.</strong> Exercise 2</a></li></ol></li><li class="chapter-item expanded "><a href="lab4/index.html"><strong aria-hidden="true">6.</strong> Lab 4：内核线程管理</a></li><li class="chapter-item expanded "><a href="lab5/index.html"><strong aria-hidden="true">7.</strong> Lab 5：用户进程管理</a></li><li class="chapter-item expanded "><a href="lab6/index.html"><strong aria-hidden="true">8.</strong> Lab 6：处理器调度</a></li><li class="chapter-item expanded "><a href="lab7/index.html"><strong aria-hidden="true">9.</strong> Lab 7：同步互斥</a></li><li class="chapter-item expanded "><a href="lab8/index.html"><strong aria-hidden="true">10.</strong> Lab 8：文件系统</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -151,16 +151,8 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#先修" id="先修">先修</a></h1>
-<p>本实验的先修课程如下所示：</p>
-<ul>
-<li>计算机组成原理</li>
-<li>C 语言程序设计</li>
-<li>数据结构</li>
-<li>操作系统</li>
-</ul>
-<p>除此之外，你还需要懂得基本的 Linux 命令行使用知识。</p>
-<p>本节将对开发环境、C 语言、汇编和 80386 做简要介绍。</p>
+                        <h1><a class="header" href="#简介" id="简介">简介</a></h1>
+<p>我们可以将计算机系统分为<strong>硬件</strong>和<strong>软件</strong>，软件又可以进一步分为<strong>系统软件</strong>和<strong>应用软件</strong>，而操作系统则属于系统软件。操作系统处于上层应用软件与底层硬件的中间层，为此它提供了三大抽象，进程是其对 CPU 的抽象，虚拟地址空间是其对内存的抽象，文件是其对 I/O 设备的抽象。</p>
 
                     </main>
 
@@ -169,7 +161,7 @@
                         
 
                         
-                            <a rel="next" href="prepare/devenv.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="prepare/index.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         
@@ -183,7 +175,7 @@
                 
 
                 
-                    <a rel="next" href="prepare/devenv.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next" href="prepare/index.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
                 
