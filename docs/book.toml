@@ -7,3 +7,4 @@ title = "OS Lab Document"
 
 [output.html]
 git-repository-url = "https://github.com/akusoft/os-lab"
+mathjax-support = true
