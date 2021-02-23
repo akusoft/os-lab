@@ -155,14 +155,62 @@
                 <div id="content" class="content">
                     <main>
                         <h1><a class="header" href="#lab-4内核线程管理" id="lab-4内核线程管理">Lab 4：内核线程管理</a></h1>
-<p>进程是指一个具有一定<strong>独立功能</strong>的程序在一个<strong>数据集合</strong>上的一次<strong>动态执行</strong>过程。</p>
+<h2><a class="header" href="#进程" id="进程">进程</a></h2>
+<p><strong>进程</strong>是指一个具有一定<strong>独立功能</strong>的程序在一个<strong>数据集合</strong>上的一次<strong>动态执行</strong>过程。</p>
+<p><strong>进程控制块</strong>（PCB，Process Control Block）是操作系统管理控制进程运行所用的信息集合。</p>
 <p>进程的基本状态：</p>
 <ul>
 <li><strong>等待态</strong>：等待外设</li>
 <li><strong>就绪态</strong>：等待CPU</li>
 <li><strong>运行态</strong>：占有CPU</li>
 </ul>
-<p>线程是进程的一部分，描述指令流执行状态。它是进程中的<strong>指令执行流</strong>的最小单元，是 CPU <strong>调度</strong>的基本单位。</p>
+<h2><a class="header" href="#线程" id="线程">线程</a></h2>
+<p><strong>线程</strong>是进程的一部分，描述指令流执行状态。它是进程中的<strong>指令执行流</strong>的最小单元，是 CPU <strong>调度</strong>的基本单位。</p>
+<p>线程的优点：</p>
+<ul>
+<li>一个进程中可以同时存在多个线程</li>
+<li>各个线程之间可以并发地执行</li>
+<li>各个线程之间可以共享地址空间和文件等资源</li>
+</ul>
+<p>线程的缺点：</p>
+<ul>
+<li>一个线程崩溃，会导致其所属进程的所有线程崩溃</li>
+</ul>
+<p>线程 = 进程 - 共享资源。线程与进程的比较：</p>
+<ul>
+<li>进程是资源分配单位，线程是 CPU 调度单位。</li>
+<li>进程拥有一个完整的资源平台，而线程只独享指令流执行的必要资源，如寄存器和栈</li>
+<li>线程同样具有就绪、等待和运行三种基本状态和状态间的转换关系</li>
+<li>线程能减少并发执行的时间和空间开销
+<ul>
+<li>线程的创建时间比进程短</li>
+<li>线程的终止时间比进程短</li>
+<li>同一进程内的线程切换时间比进程短</li>
+<li>由于同一进程的各线程间共享内存和文件资源，可不通过内核进行直接通信。</li>
+</ul>
+</li>
+<li>进程主要是隔离，线程主要是共享。</li>
+</ul>
+<p>实现线程通常有三种方法：</p>
+<ul>
+<li>用户线程：在用户空间实现</li>
+<li>内核线程：在内核中实现</li>
+<li>轻量级进程：在内核中实现，支持用户线程</li>
+</ul>
+<h2><a class="header" href="#进程控制" id="进程控制">进程控制</a></h2>
+<p>Unix 进程创建系统调用：fork/exec：</p>
+<ul>
+<li><code>fork()</code> 把一个进程复制成二个进程，<code>parent(old PID)</code>，<code>child(new PID)</code></li>
+<li><code>exec()</code> 用新程序来重写当前进程，PID 没有改变</li>
+</ul>
+<p>用 fork 和 exec 创建进程的示例：</p>
+<pre><code class="language-c">int pid = fork();  // 创建子进程
+if(pid == 0){  // 子进程在这里继续
+    // Do anything
+    exec(&quot;program&quot;, argc, argv0, argv1, ...)
+}
+</code></pre>
+<p>子进程的 fork() 返回 0，父进程的 fork() 返回子进程标识符，fork() 返回值可方便后续使用，子进程可使用 getpid() 获取 PID</p>
 <h2><a class="header" href="#实验" id="实验">实验</a></h2>
 <p>创建进程相关的数据结构和算法。</p>
 <p>具体而言，创建进程控制块（PCB）数据结构，创建进程创建（do_fork）函数。</p>

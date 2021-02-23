@@ -158,12 +158,38 @@
 <p>进程（CPU）调度算法：</p>
 <ul>
 <li><strong>先来先服务算法</strong>（FCFS）</li>
-<li><strong>时间片轮转调度算法</strong>（Round-Robin）</li>
-<li><strong>短进程优先</strong></li>
-<li><strong>最高响应比优先</strong></li>
-<li><strong>多级反馈队列</strong></li>
-<li><strong>公平共享</strong></li>
+<li><strong>时间片轮转算法</strong>（Round-Robin）</li>
+<li><strong>短进程优先算法</strong></li>
+<li><strong>最高响应比优先算法</strong></li>
+<li><strong>多级反馈队列算法</strong></li>
+<li><strong>公平共享调度算法</strong></li>
 </ul>
+<h2><a class="header" href="#先来先服务算法" id="先来先服务算法">先来先服务算法</a></h2>
+<p>依据进程进入就绪状态的先后顺序排列，进程进入等待或结束状态时，就绪队列中的下一个进程占用 CPU。</p>
+<p>优点：</p>
+<ul>
+<li>简单</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>平均等待时间波动较大</li>
+<li>I/O 资源和 CPU 资源的利用率较低</li>
+</ul>
+<h2><a class="header" href="#短进程优先算法" id="短进程优先算法">短进程优先算法</a></h2>
+<p>选择就绪队列中执行时间最短进程占用 CPU 进入运行状态。就绪队列按 <em>预期</em> 的执行时间来排序</p>
+<p>优点：</p>
+<ul>
+<li>具有最优平均周转时间</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>可能导致饥饿</li>
+<li>需要预知未来</li>
+</ul>
+<h2><a class="header" href="#最高响应比优先算法" id="最高响应比优先算法">最高响应比优先算法</a></h2>
+<p>选择就绪队列中响应比 R 值最高的进程，R = (w+s)/s，w：等待时间，s：执行时间。</p>
+<h2><a class="header" href="#时间片轮转算法" id="时间片轮转算法">时间片轮转算法</a></h2>
+<p>时间片是分配处理机资源的基本时间单位，时间片结束时，按 FCFS 算法切换到下一个就绪进程，每隔 (n-1) 个时间片进程执行一个时间片 q</p>
 <h2><a class="header" href="#实验" id="实验">实验</a></h2>
 <p>实现先来先服务调度算法（First-Come First-Served）、轮转调度算法（Round Robin）。</p>
 
