@@ -2,7 +2,53 @@
 
 ## 同步互斥
 
+**同步**是指协调多线程对共享数据的访问，即任何时刻只能有一个线程执行临界区代码。
+
+锁是一个抽象的数据结构，其包含：
+
+- 一个二进制变量（锁定/解锁）
+- `Lock::Acquire()`：锁被释放前一直等待，然后得到锁
+- `Lock::Release()`：释放锁，唤醒任何等待的进程
+
+使用锁来控制临界区访问：
+
+```c++
+lock_next_pid->Acquire();
+new_pid = next_pid++;
+lock_next_pid->Release();
+```
+
 ## 信号量
+
+**信号量**（semaphore）是操作系统提供的一种协调共享资源访问的方法。
+
+信号是一种抽象数据类型，由一个整形（`sem`）变量和两个原子操作组成：
+
+- `P()`：Prolaag，荷兰语尝试减少，`sem` 减 1，如 sem<0，进入等待，否则继续
+- `V()`：Verhoog，荷兰语增加，`sem` 加 1，如 sem<=0，唤醒一个等待进程
+
+```c++
+class Semaphore {
+    int sem;
+    WaitQueue q;
+}
+
+Semaphore::P() {
+    sem--;
+    if (sem < 0) {
+        Add this thread t to q;
+        block(p);
+    }
+}
+
+Semaphore::V() {
+    sem++;
+    if (sem <= 0) {
+        Remove a thread t from q;
+        wakeup(t);
+    }
+}
+```
 
 ## 管程
 
