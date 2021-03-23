@@ -156,7 +156,46 @@
                     <main>
                         <h1><a class="header" href="#lab-7同步互斥" id="lab-7同步互斥">Lab 7：同步互斥</a></h1>
 <h2><a class="header" href="#同步互斥" id="同步互斥">同步互斥</a></h2>
+<p><strong>同步</strong>是指协调多线程对共享数据的访问，即任何时刻只能有一个线程执行临界区代码。</p>
+<p>锁是一个抽象的数据结构，其包含：</p>
+<ul>
+<li>一个二进制变量（锁定/解锁）</li>
+<li><code>Lock::Acquire()</code>：锁被释放前一直等待，然后得到锁</li>
+<li><code>Lock::Release()</code>：释放锁，唤醒任何等待的进程</li>
+</ul>
+<p>使用锁来控制临界区访问：</p>
+<pre><code class="language-c++">lock_next_pid-&gt;Acquire();
+new_pid = next_pid++;
+lock_next_pid-&gt;Release();
+</code></pre>
 <h2><a class="header" href="#信号量" id="信号量">信号量</a></h2>
+<p><strong>信号量</strong>（semaphore）是操作系统提供的一种协调共享资源访问的方法。</p>
+<p>信号是一种抽象数据类型，由一个整形（<code>sem</code>）变量和两个原子操作组成：</p>
+<ul>
+<li><code>P()</code>：Prolaag，荷兰语尝试减少，<code>sem</code> 减 1，如 sem&lt;0，进入等待，否则继续</li>
+<li><code>V()</code>：Verhoog，荷兰语增加，<code>sem</code> 加 1，如 sem&lt;=0，唤醒一个等待进程</li>
+</ul>
+<pre><code class="language-c++">class Semaphore {
+    int sem;
+    WaitQueue q;
+}
+
+Semaphore::P() {
+    sem--;
+    if (sem &lt; 0) {
+        Add this thread t to q;
+        block(p);
+    }
+}
+
+Semaphore::V() {
+    sem++;
+    if (sem &lt;= 0) {
+        Remove a thread t from q;
+        wakeup(t);
+    }
+}
+</code></pre>
 <h2><a class="header" href="#管程" id="管程">管程</a></h2>
 <h2><a class="header" href="#死锁" id="死锁">死锁</a></h2>
 <p><strong>死锁</strong>是由于竞争资源或者通信关系，两个或更多线程在执行中出现，永远相互等待只能由其他进程引发的事件。</p>
